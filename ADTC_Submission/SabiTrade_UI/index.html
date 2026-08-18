@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SabiTrade - Offline Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar / Header Area -->
+        <header class="glass-header">
+            <div class="logo">
+                <span class="logo-icon">₦</span>
+                <h1>SabiTrade</h1>
+            </div>
+            <div class="status-indicator">
+                <span class="pulse"></span>
+                <span>Offline Engine Active</span>
+            </div>
+        </header>
+
+        <!-- Chat Interface -->
+        <main class="chat-container" id="chatContainer">
+            <div class="message system-message">
+                <div class="avatar system-avatar">S</div>
+                <div class="bubble">
+                    <p>Welcome boss! I be SabiTrade, your offline market assistant. Paste your OPay/M-Pesa SMS make I record am, or tell me wetin happen for shop.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Input Area -->
+        <footer class="input-area glass-footer">
+            <div class="input-controls">
+                <button type="button" class="action-btn" id="smsBtn">📋 Paste OPay SMS Log</button>
+            </div>
+            <form id="chatForm">
+                <input type="text" id="userInput" placeholder="E.g. I give Chinedu credit till next market day..." autocomplete="off" required>
+                <button type="submit" id="sendBtn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

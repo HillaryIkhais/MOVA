@@ -1,0 +1,14 @@
+0.00.100.648 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.107.830 W srv  llama_server: -----------------
+0.00.107.831 W srv  llama_server: CORS is set to allow all origins ('*') and no API key is set
+0.00.107.832 W srv  llama_server: this can be a security risk (cross-origin attacks)
+0.00.107.832 W srv  llama_server: more info: https://github.com/ggml-org/llama.cpp/pull/25655
+0.00.107.832 W srv  llama_server: -----------------
+0.00.110.077 I srv    load_model: loading model './llama.cpp/models/Llama-3.2-3B-Instruct/Llama-3.2-3B-Instruct-Q4_K_M.gguf'
+0.02.125.334 I cmn          init: llama threadpool init, n_threads = 4
+0.02.265.805 I srv    load_model: initializing, n_slots = 4, n_ctx_slot = 2048, kv_unified = 'true'
+0.02.277.506 I srv  llama_server: model loaded
+0.02.277.512 I srv  llama_server: listening on http://127.0.0.1:8080
+0.02.277.512 W srv  llama_server: NOTICE: server default port will be changed to :9931 in a future release
+0.02.277.513 W srv  llama_server:         ref: https://github.com/ggml-org/llama.cpp/pull/26508
+3.42.715.485 I srv    operator(): operator(): cleaning up before exit...

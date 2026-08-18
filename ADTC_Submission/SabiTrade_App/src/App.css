@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Space Mono', monospace;
+  background-color: #2A1610;
+  color: #FFFFFF;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 50;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #000000;
+  border-left: 4px solid #FFCC00;
+  border-right: 4px solid #FFCC00;
+  position: relative;
+  z-index: 10;
+}
+
+.brutalist-header {
+  background: #FFCC00;
+  color: #000000;
+  padding: 20px;
+  border-bottom: 4px solid #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  background: #000000;
+  color: #FFCC00;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.5rem;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+}
+
+.logo h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.status-indicator {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: #000000;
+  color: #FFCC00;
+  padding: 4px 8px;
+  border: 2px solid #000000;
+}
+
+.controls-bar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lang-select {
+  font-family: 'Space Mono', monospace;
+  background: #000000;
+  color: #FFCC00;
+  border: 2px solid #000000;
+  padding: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+}
+
+.chat-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #000000;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.user-message {
+  align-items: flex-end;
+}
+
+.system-message {
+  align-items: flex-start;
+}
+
+.message-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #FFCC00;
+  margin-bottom: 6px;
+  background: #2A1610;
+  padding: 4px 8px;
+  border: 1px solid #FFCC00;
+}
+
+.receipt-bubble {
+  color: #000000;
+  padding: 16px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  position: relative;
+  width: 90%;
+}
+
+.system-message .receipt-bubble {
+  background: #FFF9E6; 
+  border-top: 2px dashed #000000;
+  border-bottom: 2px dashed #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #000000;
+  box-shadow: 6px 6px 0px #2A1610;
+}
+
+.user-message .receipt-bubble {
+  background: #FFCC00;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px #2A1610;
+}
+
+.receipt-bubble p {
+  margin-bottom: 0;
+}
+
+.typing-indicator {
+  font-weight: 700;
+  color: #FFCC00;
+  animation: blink 1s infinite;
+  font-size: 1rem;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.input-area {
+  padding: 20px;
+  background: #FFCC00;
+  border-top: 4px solid #000000;
+}
+
+.input-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.brutalist-btn {
+  flex: 1;
+  padding: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000000;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.brutalist-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px #000000;
+}
+
+.wa-btn {
+  background: #25D366;
+  color: #000000;
+}
+
+form {
+  display: flex;
+  gap: 12px;
+}
+
+form input {
+  flex: 1;
+  padding: 16px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.9rem;
+  background: #000000;
+  color: #FFCC00;
+  border: 2px solid #000000;
+  outline: none;
+}
+
+form input::placeholder {
+  color: #666666;
+}
+
+form button {
+  background: #000000;
+  color: #FFCC00;
+  border: 2px solid #000000;
+  box-shadow: 4px 4px 0px #2A1610;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+form button:active:not(:disabled) {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #2A1610;
+}
+
+form button:disabled {
+  background: #333333;
+  color: #666666;
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+}
