@@ -1,12 +1,12 @@
-# SabiTrade: The Elite Offline Bookkeeper for the 80%
+# SabiTrade: The Offline Bookkeeper
 
-SabiTrade is designed to bring robust, AI-powered bookkeeping to edge environments without internet access. Instead of treating the AI as an uncontrolled "chatbot", SabiTrade wraps a local `llama-server` in a strict **Safety Console Middleware**, creating a deterministic, production-ready transaction pipeline.
+SabiTrade is designed to bring robust, AI-powered bookkeeping to edge environments without internet access. Instead of treating the AI as an uncontrolled "chatbot", SabiTrade uses a local `llama-server` in a strict **Safety Console Middleware**, creating a production ready transaction pipeline.
 
 ## The Architectural Moat
 
-Elite hackathon projects do not trust LLMs blindly. SabiTrade implements a **Deterministic Safety Boundary**:
+SabiTrade implements a **Deterministic Safety Boundary**:
 1. **Strict JSON Parsing**: The AI is forced to extract entities into a predefined schema.
-2. **Human-in-the-Loop Validation**: Deterministic Python logic recalculates the math. If the LLM hallucinates `3 * 500 = 2000`, the Safety Console corrects it to `1500` before saving.
+2. **Human-in-the-Loop Validation**: Python logic recalculates the math. If the LLM hallucinates, the Safety Console corrects it before saving.
 3. **Append-Only Ledger Persistence**: All verified transactions are written to a local SQLite database, establishing a regulatory-compliant audit trail.
 
 ## System Architecture
@@ -30,9 +30,9 @@ graph TD
     Middleware -.->|SSE Streaming Thoughts| UI
 ```
 
-## The Theatrical Facade (Demo UX)
+## The UX
 
-Judges need to see the "invisible" backend thinking. The SabiTrade UI features a **Live Streaming Thought Trace** terminal. When a user inputs a complex trade string, the UI visually streams the agent's internal monologue (parsing, validating, correcting) via Server-Sent Events (SSE). 
+It is paramount to see the backend thinking. The SabiTrade UI features a **Live Streaming Thought Trace** terminal. When a user inputs a complex trade string, the UI visually streams the agent's internal monologue (parsing, validating, correcting) via Server-Sent Events (SSE). 
 
 ## Setup Instructions
 
