@@ -1,4 +1,4 @@
-# SabiCore Elite — ADTC Submission Report
+# MOVA — ADTC Submission Report
 
 ## Problem
 
@@ -8,7 +8,7 @@ Cloud-based AI tools require API fees, stable fiber, and sustained electricity. 
 
 ## Solution
 
-SabiCore Elite is an **offline financial intelligence layer** that converts the messy communication African businesses already use into structured business records and actions.
+MOVA is an **offline financial intelligence layer** that converts the messy communication African businesses already use into structured business records and actions.
 
 It does not try to be a chatbot or a QuickBooks clone. It does one thing well:
 
@@ -187,9 +187,9 @@ Each example maps a real business message to ground-truth JSON financial state.
 
 ### Key Finding
 
-The model's biggest weakness was **debt direction** — flipping "I owe X" to receivable. With targeted prompt engineering (explicit direction rules + few-shot examples), we improved payable direction accuracy from **35% to 92%** on a directional test set. This is the core of SabiCore's value: correctly understanding who owes whom in informal African commerce.
+The model's biggest weakness was **debt direction** — flipping "I owe X" to receivable. With targeted prompt engineering (explicit direction rules + few-shot examples), we improved payable direction accuracy from **35% to 92%** on a directional test set. This is the core of MOVA's value: correctly understanding who owes whom in informal African commerce.
 
-**What this means for the competition:** The 72% ARC-Easy score measures general reasoning. But SabiCore's specialized benchmark shows the same model achieves **98% entity extraction, 92% debt direction, and 91% status accuracy** on its intended task. The model is far more capable on African financial language than the generic benchmark suggests.
+**What this means for the competition:** The 72% ARC-Easy score measures general reasoning. But MOVA's specialized benchmark shows the same model achieves **98% entity extraction, 92% debt direction, and 91% status accuracy** on its intended task. The model is far more capable on African financial language than the generic benchmark suggests.
 
 ## How to Run
 
@@ -213,7 +213,7 @@ ADTC_Submission/
 ├── run_demo.sh            # Launches server + Tauri app
 ├── .gitignore             # Excludes model/ and *.gguf
 ├── model/                 # Created by download_model.sh (not in git)
-└── SabiTrade_App/         # Tauri application source
+└── Arova_App/         # Tauri application source
     ├── src/               # React frontend
     ├── src-tauri/         # Rust backend
     └── ...

@@ -223,6 +223,7 @@ body {
 }
 .debt-receipt::before { background: var(--danger); }
 .income-receipt::before { background: var(--success); }
+.expense-receipt::before { background: var(--accent-gold); }
 
 .receipt-header {
   font-size: 12px; text-transform: uppercase; letter-spacing: 2px;
@@ -239,6 +240,7 @@ body {
 
 .badge { padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 .badge.warning { background: rgba(255, 184, 0, 0.1); color: var(--accent-gold); border: 1px solid rgba(255, 184, 0, 0.3); }
+.badge.paid { background: rgba(0, 255, 102, 0.1); color: var(--success); border: 1px solid rgba(0, 255, 102, 0.3); }
 
 /* Inputs */
 .input-section { padding: 32px; background: var(--bg-panel); border-top: 1px solid var(--border-subtle); }

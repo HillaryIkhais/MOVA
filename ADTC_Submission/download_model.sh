@@ -6,7 +6,7 @@ MODEL_FILE="$MODEL_DIR/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
 MODEL_URL="https://huggingface.co/bartowski/Llama-3.2-3B-Instruct-GGUF/resolve/main/Llama-3.2-3B-Instruct-Q4_K_M.gguf?download=true"
 
 echo "==========================================="
-echo "  SabiCore Elite — Model Downloader"
+echo "  MOVA — Model Downloader"
 echo "==========================================="
 
 mkdir -p "$MODEL_DIR"

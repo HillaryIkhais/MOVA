@@ -1,10 +1,26 @@
 import { useState, useRef, useEffect } from 'react';
 import './App.css';
 
-const API_URL = 'http://127.0.0.1:8080/completion';
+const API_URL = 'http://127.0.0.1:8084/completion';
 
-const GET_SYSTEM_PROMPT = (lang: string, biz: string) => `You are SabiCore, an elite offline financial assistant for ${biz}.
-Respond in ${lang}.`;
+const GET_SYSTEM_PROMPT = (lang: string, biz: string) => `You are SabiCore, an offline financial intelligence system for African SMEs.
+Business: ${biz}
+Language: ${lang}
+
+KEY RULE:
+- "I owe X" = PAYABLE (you must pay X)
+- "X owes me" or "X still dey owe me" = RECEIVABLE (X must pay you)
+
+Examples:
+"I owe Chinedu 15k" -> {"customer": "Chinedu", "amount": "15000", "type": "payable", "status": "outstanding"}
+"Chinedu owe me 85k" -> {"customer": "Chinedu", "amount": "85000", "type": "receivable", "status": "outstanding"}
+"I need to pay Alhaji Bello 250k" -> {"customer": "Alhaji Bello", "amount": "250000", "type": "payable", "status": "outstanding"}
+"Alhaji Bello owe me 250k" -> {"customer": "Alhaji Bello", "amount": "250000", "type": "receivable", "status": "outstanding"}
+"Mama Adura don pay 20k" -> {"customer": "Mama Adura", "amount": "20000", "type": "receivable", "status": "paid"}
+"I don pay Mama Nkechi 80k" -> {"customer": "Mama Nkechi", "amount": "80000", "type": "payable", "status": "paid"}
+
+Output ONLY valid JSON:
+{"customer": "name", "amount": "number", "type": "receivable or payable", "status": "outstanding or paid"}`;
 
 function App() {
   const [screen, setScreen] = useState<'landing' | 'ledger'>('landing');
@@ -52,7 +68,29 @@ function App() {
       });
       if (!response.ok) throw new Error('Server error');
       const data = await response.json();
-      setMessages(prev => [...prev, { role: 'system', content: data.content.trim() }]);
+      const raw = data.content.trim();
+      // Try to parse JSON from model output
+      try {
+        const jsonMatch = raw.match(/\{[^}]+\}/);
+        if (jsonMatch) {
+          const parsed = JSON.parse(jsonMatch[0]);
+          const isReceivable = parsed.type === 'receivable';
+          const isPaid = parsed.status === 'paid';
+          const cardHTML = `
+            <div class="transaction-receipt ${isReceivable ? (isPaid ? 'income-receipt' : 'debt-receipt') : 'expense-receipt'}">
+              <div class="receipt-header">${isReceivable ? (isPaid ? 'PAYMENT RECEIVED' : 'DEBT TRACKED') : (isPaid ? 'PAYMENT SENT' : 'BILL LOGGED')}</div>
+              <div class="receipt-row"><span>Customer:</span> <strong>${parsed.customer}</strong></div>
+              <div class="receipt-row"><span>Amount:</span> <strong class="${isPaid ? 'text-success' : 'text-danger'}">₦${Number(parsed.amount).toLocaleString()}</strong></div>
+              <div class="receipt-row"><span>Type:</span> <strong>${isReceivable ? 'Money Owed TO You' : 'Money You Owe'}</strong></div>
+              <div class="receipt-row"><span>Status:</span> <span class="badge ${isPaid ? 'paid' : 'warning'}">${isPaid ? 'SETTLED' : 'OUTSTANDING'}</span></div>
+            </div>`;
+          setMessages(prev => [...prev, { role: 'system', content: cardHTML }]);
+        } else {
+          setMessages(prev => [...prev, { role: 'system', content: raw }]);
+        }
+      } catch {
+        setMessages(prev => [...prev, { role: 'system', content: raw }]);
+      }
     } catch {
       // HACKATHON FALLBACK: If the python server is down, return a stunning mock UI card so the video is flawless.
       setTimeout(() => {
@@ -92,13 +130,29 @@ function App() {
     setInput('[18/08/2026, 13:00] Mama Nkechi: Chinedu, the 20 bags of rice I supply you yesterday, you never pay the balance.\n[18/08/2026, 13:05] Chinedu: Ah Mama no vex. I go balance you the remaining N150,000 next market day.\n[18/08/2026, 13:10] Mama Nkechi: No problem, I don record am.');
   };
 
+  const QUICK_EXAMPLES = [
+    { label: "Pidgin Debt", msg: "Chinedu still dey owe me 85k for that delivery.", icon: "📱" },
+    { label: "Payment Received", msg: "Mama Adura don pay her 20k. Her own don finish.", icon: "💰" },
+    { label: "Supplier Bill", msg: "I wan pay Alhaji Bello 250k for 50 bags of rice.", icon: "📦" },
+    { label: "Mixed Transaction", msg: "Chinedu owe me 85k and I need pay Mama Nkechi 45k for stock.", icon: "🔄" },
+  ];
+
+  const handleQuickExample = (msg: string) => {
+    setInput(msg);
+    setTimeout(() => {
+      setInput(msg);
+      const form = document.querySelector('.chat-form') as HTMLFormElement;
+      if (form) form.requestSubmit();
+    }, 100);
+  };
+
   if (screen === 'landing') {
     return (
       <div className="landing-layout">
         <div className="landing-content fade-in">
           <div className="hexagon-logo">SC</div>
           <h1 className="hero-title">SabiCore Elite</h1>
-          <p className="hero-desc">The high-performance, edge-AI financial command center for African enterprise.</p>
+          <p className="hero-desc">Offline financial intelligence for African SMEs. Paste a WhatsApp message or SMS in English or Pidgin — SabiCore extracts who owes whom, how much, and when it's due. No internet. No cloud. Your data stays on your laptop.</p>
           <form className="landing-form" onSubmit={handleStartLedger}>
             <input
               type="text"
@@ -127,21 +181,8 @@ function App() {
         <div className="lang-section">
           <label>Localization Engine</label>
           <select className="premium-select" value={language} onChange={e => setLanguage(e.target.value)}>
-            <optgroup label="West Africa">
-              <option value="Nigerian Pidgin">🇳🇬 Nigerian Pidgin</option>
-              <option value="Yoruba">🇳🇬 Yoruba</option>
-              <option value="Igbo">🇳🇬 Igbo</option>
-              <option value="Hausa">🇳🇬 Hausa</option>
-              <option value="Twi">🇬🇭 Twi</option>
-              <option value="French (West Africa)">🇸🇳 Francophone (WA)</option>
-            </optgroup>
-            <optgroup label="East & South Africa">
-              <option value="Swahili">🇰🇪 Swahili</option>
-              <option value="Amharic">🇪🇹 Amharic</option>
-              <option value="Oromo">🇪🇹 Oromo</option>
-              <option value="Zulu">🇿🇦 Zulu</option>
-              <option value="Shona">🇿🇼 Shona</option>
-            </optgroup>
+              <option value="Nigerian English">Nigerian English</option>
+              <option value="Nigerian Pidgin">Nigerian Pidgin</option>
           </select>
         </div>
 
@@ -202,12 +243,11 @@ function App() {
 
           <div className="input-section">
             <div className="quick-actions">
-              <button type="button" className="action-btn success" onClick={handlePasteSMS}>
-                <span className="icon">💰</span> Import OPay SMS
-              </button>
-              <button type="button" className="action-btn warning" onClick={handlePasteWhatsApp}>
-                <span className="icon">💬</span> Parse WhatsApp Debt
-              </button>
+              {QUICK_EXAMPLES.map((ex, i) => (
+                <button key={i} type="button" className="action-btn success" onClick={() => handleQuickExample(ex.msg)}>
+                  <span className="icon">{ex.icon}</span> {ex.label}
+                </button>
+              ))}
             </div>
             
             <form className="chat-form" onSubmit={handleSend}>
