@@ -27,12 +27,12 @@
     },
     "test_prompts": [
       {
-        "prompt_id": "opay_sms_parse",
+        "prompt_id": "structured_sms_parse",
         "prompt": "Parse this OPay SMS: 'You have received N50,000.00 from CHINEDU OKAFOR. Ref: 20260817001. Bal: N125,450.00.' Log it as income."
       },
       {
-        "prompt_id": "whatsapp_debt_extract",
-        "prompt": "Extract this debt agreement from WhatsApp: '[18/08/2026, 13:00] Mama Nkechi: Chinedu, the 20 bags of rice I supply you yesterday, you never pay the balance. [18/08/2026, 13:05] Chinedu: Ah Mama no vex. I go balance you the remaining N150,000 next market day.'"
+        "prompt_id": "messy_pidgin_to_structured",
+        "prompt": "Abeg remind Chinedu say him still owe me 45k from the last delivery. He said he'll pay after market day. Extract the customer, amount, type, context, and due date."
       }
     ],
     "model": {
@@ -51,24 +51,24 @@
     "os": "macOS-26.5.2-arm64-arm-64bit"
   },
   "throughput": {
-    "tokens_per_second_generation": 8.32,
-    "first_token_latency_ms": 12138.82,
+    "tokens_per_second_generation": 7.38,
+    "first_token_latency_ms": 14300.14,
     "prompt_tokens": 512,
     "generated_tokens": 128
   },
   "memory": {
-    "peak_rss_mb": 3779.3,
-    "steady_state_rss_mb": 2677.0,
-    "peak_vms_mb": 831133.22
+    "peak_rss_mb": 4028.66,
+    "steady_state_rss_mb": 3814.26,
+    "peak_vms_mb": 831148.48
   },
   "accuracy": [],
   "cpu_thermal": {
-    "cpu_percent_p99": 78.7,
+    "cpu_percent_p99": 71.6,
     "core_temp_c_peak": null,
     "throttled": false
   },
   "reproducibility": {
-    "git_commit_sha": "4c4d4a292e4c",
+    "git_commit_sha": "6163ad08ddee",
     "docker_image_digest": "unknown",
     "random_seed": 42
   },

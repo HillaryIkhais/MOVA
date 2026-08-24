@@ -6,7 +6,7 @@ Small and medium enterprises (SMEs) across Africa operate in low-connectivity en
 
 ## Solution
 
-SabiCore Elite is a fully offline, edge-AI financial command center that runs locally on any laptop. It uses a quantized Llama-3.2-3B model to:
+SabiCore is a fully offline, edge-AI financial command center that runs locally on any laptop. It uses a quantized Llama-3.2-3B model to:
 
 - Parse Mobile Money SMS messages and extract transaction data (sender, amount, reference, balance)
 - Extract debt agreements from WhatsApp chat logs (debtor, creditor, amount, terms)
