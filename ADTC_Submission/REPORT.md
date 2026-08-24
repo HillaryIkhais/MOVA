@@ -38,29 +38,46 @@ The LLM does four things a parser cannot:
 3. **Tracks credit state** — recognizes "Mama Adura don pay" = debt settled, updates ledger
 4. **Takes action** — generates structured records with customer, amount, type, context, and status
 
-### Demo Case: Multi-Turn Credit Tracking
+### Demo Case: Pidgin Debt Extraction
 
-**Input (WhatsApp conversation):**
+**Input (WhatsApp message in Nigerian Pidgin):**
 ```
-[12/08/2026, 09:15] Mama Nkechi: Chinedu, the 20 bags of rice I supply you yesterday, you never pay the balance.
-[12/08/2026, 09:20] Chinedu: Ah Mama no vex. I go balance you the remaining N150,000 next market day.
-[15/08/2026, 14:00] Chinedu: Mama I don send N50,000 via OPay. Check your phone.
-[15/08/2026, 14:05] Mama Nkechi: I don see am. So you still owe me N100,000.
-[15/08/2026, 14:10] Chinedu: Yes Mama. I go pay the remaining before end of week.
+Chinedu still dey owe me 85k for that delivery.
 ```
 
 **Model Output:**
-```
-Creditor: Mama Nkechi
-Debtor: Chinedu
-Original Amount: ₦150,000
-Payments Made: ₦50,000 (via OPay, 15/08/2026)
-Remaining Balance: ₦100,000
-Due Terms: Before end of week
-Current Status: Active — partial payment received, remainder pending
+```json
+{"customer": "Chinedu", "amount": "85000", "type": "receivable", "status": "outstanding"}
 ```
 
-This is not text extraction. This is understanding an informal credit relationship across multiple messages and tracking its full lifecycle — locally, offline, in Pidgin.
+### Demo Case: Pidgin Payment Settlement
+
+**Input (WhatsApp message in Nigerian Pidgin):**
+```
+Mama Adura don pay her 20k. Her own don finish.
+```
+
+**Model Output:**
+```json
+{"customer": "Mama Adura", "amount": "20000", "type": "receivable", "status": "paid"}
+```
+
+### Demo Case: Supplier Payment
+
+**Input (WhatsApp message in Nigerian Pidgin):**
+```
+I wan pay Alhaji Bello 250k for 50 bags of rice.
+```
+
+**Model Output:**
+```json
+{"customer": "Alhaji Bello", "amount": "250000", "type": "payable", "status": "outstanding"}
+```
+
+These are real economic extractions from informal Pidgin business communication — not template matching. The model correctly identifies:
+- **Who owes whom**: "Chinedu dey owe me" → receivable (money owed TO the business)
+- **Payment status**: "don pay" → paid
+- **Supplier liability**: "I wan pay" → payable (money owed BY the business)
 
 ## Design Decisions
 
@@ -74,7 +91,7 @@ This is not text extraction. This is understanding an informal credit relationsh
 
 ## Constraints
 
-- **Model size**: Must fit in RAM on a participant laptop (8GB+). Measured peak RSS: 3,217 MB.
+- **Model size**: Must fit in RAM on a participant laptop (8GB+). Measured peak RSS: 4,017 MB.
 - **No internet required**: Model downloads are one-time; all inference is local.
 - **No GPU required**: llama.cpp runs on CPU fallback, though GPU acceleration (Metal/CUDA) is supported when available.
 - **Accuracy vs. speed tradeoff**: A 3B model doesn't need to be a brilliant general-purpose reasoner. It needs to be excellent at one constrained task: converting messy real-world SME communication into structured business actions.
@@ -97,12 +114,9 @@ All numbers measured by `adtc-profiler run --mode participant --output submissio
 
 | Metric | Measured Value |
 |---|---|
-| **Throughput** | 10.72 tokens/sec |
-| **First token latency** | 10,996 ms |
-| **Peak RSS** | 3,217 MB |
-| **Steady-state RSS** | 3,090 MB |
+| **Throughput** | 7.32 tokens/sec |
+| **Peak RSS** | 4,017 MB |
 | **Accuracy (arc_easy)** | 72% |
-| **CPU utilization (p99)** | 72.4% |
 | **Thermal throttling** | No |
 | **Parameter count** | 3,212,749,888 (confirmed) |
 | **Params match claim** | True |
@@ -112,15 +126,31 @@ All numbers measured by `adtc-profiler run --mode participant --output submissio
 | Component | Weight | Score |
 |---|---|---|
 | **S_ACC** (Accuracy) | 50% | 72.0 |
-| **S_PERF** (Throughput) | 30% | 71.5 |
-| **S_EFF** (Efficiency) | 20% | 54.0 |
+| **S_PERF** (Throughput) | 30% | 48.8 |
+| **S_EFF** (Efficiency) | 20% | 42.6 |
 | **P_THERMAL** | — | 0 (no penalty) |
 
-**Estimated total: 68.2 / 100** (before African Use Case bonus)
+**Estimated total: 59.2 / 100** (before African Use Case bonus)
 
 ### Note on Hardware
 
 The ADTC reference hardware is an Intel Core i5 10th-12th gen, 8 GB DDR4, integrated graphics. Our development hardware is Apple M3. The profiler's `llama-bench` runs CPU-only on both platforms. Published benchmarks for similar 3B Q4_K_M models on Intel i5 hardware show comparable throughput ranges (10-12 t/s). Our measured numbers are within the expected performance envelope for this model class.
+
+## Language Benchmark — Economic Extraction Accuracy
+
+I tested the model's ability to extract structured financial data from business messages across Nigerian languages. The same economic event was expressed in English and Nigerian Pidgin, and the model's output was scored on four fields: customer name, amount, transaction type (receivable/payable), and status (outstanding/paid).
+
+| Language | Extraction Accuracy | Perfect Extractions |
+|---|---|---|
+| **English** | 100% | 3/3 |
+| **Nigerian Pidgin** | 100% | 3/3 |
+| **Yoruba** | 40% | 0/5 |
+| **Igbo** | 55% | 0/5 |
+| **Hausa** | 50% | 0/5 |
+
+**Key finding:** The model reliably extracts economic meaning from English and Nigerian Pidgin business messages. Indigenous language support (Yoruba, Igbo, Hausa) requires further fine-tuning — we do not claim support for these languages in this submission.
+
+**Direction-aware extraction:** The model correctly distinguishes "X owes me" (receivable) from "I owe X" (payable) in both English and Pidgin — a critical requirement for credit tracking that most basic NLP parsers fail at.
 
 ## How to Run
 

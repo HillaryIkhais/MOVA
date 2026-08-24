@@ -1,0 +1,552 @@
+[
+  {
+    "language": "English",
+    "input": "Chinedu owes me 85,000 naira for the last delivery.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "85000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "English",
+    "input": "Mama Adura paid 20,000 naira yesterday. Her debt is settled.",
+    "output": {
+      "customer": "Mama Adura",
+      "amount": "20000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "English",
+    "input": "I need to pay Alhaji Bello 250,000 for 50 bags of rice.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "250000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "English",
+    "input": "Uncle Emeka still owes 45,000 from last month's supply.",
+    "output": {
+      "customer": "Uncle Emeka",
+      "amount": "45000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "English",
+    "input": "I sent 50,000 to Mama Nkechi via bank transfer.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "50000",
+      "type": "payable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "English",
+    "input": "Chinedu's balance is still 120,000 naira outstanding.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "120000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "English",
+    "input": "Alhaji Bello delivered 100 bags, I owe him 500,000.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "500000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "English",
+    "input": "Mama Nkechi settled her 35,000 debt in full.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "35000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "English",
+    "input": "I owe Chinedu 15,000 change from last transaction.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "15000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "English",
+    "input": "Uncle Emeka paid 200,000 for the December supply.",
+    "output": {
+      "customer": "Uncle Emeka",
+      "amount": "200000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "Chinedu still dey owe me 85k for that delivery.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "85000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "Mama Adura don pay her 20k. Her own don finish.",
+    "output": {
+      "customer": "Mama Adura",
+      "amount": "20000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "I wan pay Alhaji Bello 250k for 50 bags of rice.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "250000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "Uncle Emeka still owe me 45k from last month.",
+    "output": {
+      "customer": "Uncle Emeka",
+      "amount": "45000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "I don send 50k to Mama Nkechi through bank.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "50000",
+      "type": "payable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "Chinedu balance still dey 120k, e never pay.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "120000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "Alhaji Bello bring 100 bags, I owe am 500k.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "500000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "Mama Nkechi don settle the 35k wey she owe me.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "35000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "I still dey owe Chinedu 15k change from last time.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "15000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Nigerian Pidgin",
+    "input": "Uncle Emeka don pay 200k for the December supply.",
+    "output": {
+      "customer": "Uncle Emeka",
+      "amount": "200000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "Chinedu \u00f2 s\u00ed \u00ecde \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta f\u00fan \u00ecr\u00e1n \u00e0\u1e63\u00e0y\u00e0n.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "85000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "Mama Adura ti san \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta l\u00e1n\u00e0. \u00d3 ti par\u00ed.",
+    "output": {
+      "customer": "Mama Adura",
+      "amount": "20000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "Mo nil\u00f2\u00f3\u00f2 s\u00ed Alhaji Bello \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta f\u00fan b\u00e1ga \u00ecr\u00eds\u00ec.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "250000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "B\u00e0b\u00e1 Emeka k\u00f2 s\u00ed \u00ecde \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta f\u00fan o\u1e63\u00f9 kanna.",
+    "output": {
+      "customer": "B\u00e0b\u00e1 Emeka",
+      "amount": "45000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "Mo r\u00e1n \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta s\u00ed Mama Nkechi n\u00edpas\u1eb9\u0300 b\u00e1nk\u00ec.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "50000",
+      "type": "payable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "\u00ccw\u1ecd\u0300j\u1ecd\u0301 Chinedu j\u1eb9\u0301 \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta \u00e0\u00e1d\u1ecd\u0301ta.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "120000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "Alhaji Bello m\u00fa \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta s\u00ed mi.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "500000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "Mama Nkechi ti par\u00ed \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta t\u00ed \u00f3 j\u1eb9\u0301.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "35000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "Mo \u00f2 s\u00ed \u00ecde \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta f\u00fan Chinedu.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "15000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Yoruba",
+    "input": "B\u00e0b\u00e1 Emeka ti san \u1ecd\u0300k\u1eb9\u0300 \u00e0\u00e1d\u1ecd\u0301ta-\u00e0\u00e1d\u1ecd\u0301ta f\u00fan \u00ecr\u00e1n k\u1eb9\u0300\u1eb9\u0300d\u1ecd\u0301g\u00fan.",
+    "output": {
+      "customer": "B\u00e0b\u00e1 Emeka",
+      "amount": "200000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Chinedu ad\u1ecbgh\u1ecb ya ihe \u1ecd\u0300n\u1ee5 alafa ind\u00e8 ab\u1ee5\u1ecd na ise nke ntinye ego.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "85000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Mama Adura ag\u1ee5z\u1ecbr\u1ecb aka \u1ecd\u0300n\u1ee5 alafa ind\u00e8. Emeela.",
+    "output": {
+      "customer": "Mama Adura",
+      "amount": "20000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "A ch\u1ecdr\u1ecd m ka m tinye ego Alhaji Bello \u1ecd\u0300n\u1ee5 alafa ind\u00e8 ab\u1ee5\u1ecd na ise maka rice.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "250000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Nna Emeka ka n\u1ecd na \u1ecd\u0300n\u1ee5 alafa ab\u1ee5\u1ecd na ise nke \u1ecdnwa gara aga.",
+    "output": {
+      "customer": "Nna Emeka",
+      "amount": "45000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Ezitere m \u1ecd\u0300n\u1ee5 alafa ind\u00e8 Mama Nkechi site na ban\u1ecb.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "50000",
+      "type": "payable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Chinedu ka n\u1ecd na \u1ecd\u0300n\u1ee5 alafa ind\u00e8 ab\u1ee5\u1ecd na ise.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "120000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Alhaji Bello were ego \u1ecd\u0300n\u1ee5 alafa ind\u00e8 ab\u1ee5\u1ecd na ise na ise.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "500000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Mama Nkechi ag\u1ee5z\u1ecbr\u1ecb aka \u1ecd\u0300n\u1ee5 alafa ab\u1ee5\u1ecd na ise.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "35000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "A na m debi ego Chinedu \u1ecd\u0300n\u1ee5 alafa ise.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "15000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Igbo",
+    "input": "Nna Emeka ag\u1ee5z\u1ecbr\u1ecb aka \u1ecd\u0300n\u1ee5 alafa ab\u1ee5\u1ecd na ise.",
+    "output": {
+      "customer": "Nna Emeka",
+      "amount": "200000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Chinedu bai biya ku\u0257in kaya guda 85 ba.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "85000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Mama Adura ta biya ku\u0257inta na 20 wata jiya. An gama.",
+    "output": {
+      "customer": "Mama Adura",
+      "amount": "20000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Ina bukatar biya Alhaji Bello ku\u0257i 250 don Quantity 50 na shinkafa.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "250000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Uncle Emeka har yanzu yana da bil 45 na wata baya.",
+    "output": {
+      "customer": "Uncle Emeka",
+      "amount": "45000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Na aika 50 zuwa Mama Nkechi ta hanyar banki.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "50000",
+      "type": "payable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Chinedu har yanzu yana da ku\u0257i 120.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "120000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Alhaji Bello ya kawo kaya 100, ina biyansa 500.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "500000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Mama Adura ta biya ku\u0257inta na 35.",
+    "output": {
+      "customer": "Mama Adura",
+      "amount": "35000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Ina biyan Chinedu ku\u0257i 15 na canjin.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "15000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Hausa",
+    "input": "Uncle Emeka ya biya 200 don kayan Disamba.",
+    "output": {
+      "customer": "Uncle Emeka",
+      "amount": "200000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Code-switched",
+    "input": "Chinedu never balance the 85k, he go pay after market day.",
+    "output": {
+      "customer": "Chinedu",
+      "amount": "85000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Code-switched",
+    "input": "Mama Adura don settle the 20k wey she owe me from last month.",
+    "output": {
+      "customer": "Mama Adura",
+      "amount": "20000",
+      "type": "receivable",
+      "status": "paid"
+    }
+  },
+  {
+    "language": "Code-switched",
+    "input": "I need to pay Alhaji Bello the 250k for rice, he don deliver.",
+    "output": {
+      "customer": "Alhaji Bello",
+      "amount": "250000",
+      "type": "payable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Code-switched",
+    "input": "Uncle Emeka still dey owe me 45k, e say e go pay next week.",
+    "output": {
+      "customer": "Uncle Emeka",
+      "amount": "45000",
+      "type": "receivable",
+      "status": "outstanding"
+    }
+  },
+  {
+    "language": "Code-switched",
+    "input": "I don send the 50k to Mama Nkechi through her GTBank account.",
+    "output": {
+      "customer": "Mama Nkechi",
+      "amount": "50000",
+      "type": "payable",
+      "status": "paid"
+    }
+  }
+]

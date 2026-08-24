@@ -6,19 +6,14 @@
     "domain": "corporate_enterprise",
     "language_scope": [
       "English",
-      "Nigerian Pidgin",
-      "Yoruba",
-      "Igbo",
-      "Hausa",
-      "Twi",
-      "Swahili"
+      "Nigerian Pidgin"
     ],
     "african_alpha_claim": true,
     "budget_laptop_claim": true,
     "submitter": {
-      "name": "YOUR NAME",
-      "email": "YOUR EMAIL",
-      "github_handle": "YOUR GITHUB"
+      "name": "IKHAIS HILLARY",
+      "email": "ikhaishillary@gmail.com",
+      "github_handle": "https://github.com/HillaryIkhais"
     },
     "cross_disciplinary_pairing": {
       "discipline": "Finance / SME Productivity",
@@ -27,12 +22,12 @@
     },
     "test_prompts": [
       {
-        "prompt_id": "complex_credit_state",
-        "prompt": "You are SabiCore, an offline financial intelligence system. You track who owes whom, how much, and when they promised to pay. Convert this conversation into structured credit state.\n\nConversation between Mama Nkechi (supplier) and her customers:\n\nChinedu: Mama I wan collect 10 bags of garri again. How much remaining for the last one?\nMama Nkechi: The rice you collect last week still dey. That one na 150k. You pay 50k. Remaining 100k.\nChinedu: Okay no wahala. I go pay 85k tomorrow. I go balance the remaining 15k after market day.\nMama Nkechi: Which market day? Wednesday or Saturday?\nChinedu: Saturday Mama.\nMama Nkechi: No problem. But Chinedu your debt don dey pile up o. Last month you still owe me 45k for the yam.\nChinedu: Ah that one? I don pay am yesterday. Check your OPay.\nMama Nkechi: I no see any 45k o.\nChinedu: Check again. I send am around 3pm yesterday.\n\nFor each customer, extract: name, original debt, payments confirmed, payments pending, total remaining, due dates, and current status (settled/disputed/active)."
+        "prompt_id": "sms_to_ledger",
+        "prompt": "You are SabiCore, an offline financial intelligence system for African SMEs. Parse this Mobile Money SMS and extract the transaction details.\n\nSMS: \"OPay: You have received N50,000.00 from CHINEDU OKAFOR. Ref: 20260817001. Bal: N125,450.00.\"\n\nExtract: sender name, amount received, reference number, new balance, and transaction type (income/expense)."
       },
       {
-        "prompt_id": "messy_pidgin_to_structured_actions",
-        "prompt": "You are SabiCore, an offline financial intelligence system. Parse this voice-note transcript from a market trader and produce structured financial records.\n\nTranscript:\n\"Okay so Chinedu still dey owe me 45k from the last delivery wey I give him. He say him go pay after market day. Abeg put am for my reminders. And Mama Adura don settle her own 20k wey she owe me from last month so her own don finish. Oh and I wan order 50 bags of rice from Alhaji Bello, that one go cost me like 250k. So how much I suppose collect from people and how much I suppose pay?\"\n\nProduce: (1) list of all debts owed TO the trader with customer names, amounts, and due dates, (2) list of all debts the trader OWES with supplier names and amounts, (3) net balance, (4) action items to create."
+        "prompt_id": "whatsapp_debt_to_structured",
+        "prompt": "You are SabiCore, an offline financial intelligence system for African SMEs. Parse this WhatsApp conversation and extract the debt information.\n\n[18/08/2026, 13:00] Mama Nkechi: Chinedu, the 20 bags of rice I supply you yesterday, you never pay the balance.\n[18/08/2026, 13:05] Chinedu: Ah Mama no vex. I go balance you the remaining N150,000 next market day.\n[18/08/2026, 13:10] Mama Nkechi: No problem, I don record am.\n\nExtract: creditor name, debtor name, amount owed, due date, and current status."
       }
     ],
     "model": {
@@ -51,15 +46,15 @@
     "os": "macOS-26.5.2-arm64-arm-64bit"
   },
   "throughput": {
-    "tokens_per_second_generation": 6.57,
-    "first_token_latency_ms": 13194.24,
+    "tokens_per_second_generation": 7.32,
+    "first_token_latency_ms": 13219.18,
     "prompt_tokens": 512,
     "generated_tokens": 128
   },
   "memory": {
-    "peak_rss_mb": 4002.66,
-    "steady_state_rss_mb": 3222.61,
-    "peak_vms_mb": 831162.44
+    "peak_rss_mb": 4016.67,
+    "steady_state_rss_mb": 3831.31,
+    "peak_vms_mb": 831085.17
   },
   "accuracy": [
     {
@@ -72,12 +67,12 @@
     }
   ],
   "cpu_thermal": {
-    "cpu_percent_p99": 74.0,
+    "cpu_percent_p99": 82.5,
     "core_temp_c_peak": null,
     "throttled": false
   },
   "reproducibility": {
-    "git_commit_sha": "452deebf1181",
+    "git_commit_sha": "24e7a2c3868f",
     "docker_image_digest": "unknown",
     "random_seed": 42
   },

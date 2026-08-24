@@ -1,7 +1,10 @@
 {
   "team_id": "sabicore",
   "domain": "corporate_enterprise",
-  "language_scope": ["English", "Nigerian Pidgin", "Yoruba", "Igbo", "Hausa", "Twi", "Swahili"],
+  "language_scope": [
+    "English",
+    "Nigerian Pidgin"
+  ],
   "african_alpha_claim": true,
   "budget_laptop_claim": true,
   "submitter": {
@@ -12,7 +15,7 @@
   "cross_disciplinary_pairing": {
     "discipline": "Finance / SME Productivity",
     "load_bearing": true,
-    "description": "Offline economic intelligence layer that converts the messy conversations African businesses already use — WhatsApp, SMS, Pidgin — into structured financial records and credit tracking."
+    "description": "Offline economic intelligence layer that converts the messy conversations African businesses already use \u2014 WhatsApp, SMS, Pidgin \u2014 into structured financial records and credit tracking."
   },
   "test_prompts": [
     {
