@@ -1,0 +1,37 @@
+{
+  "team_id": "sabicore",
+  "domain": "corporate_enterprise",
+  "language_scope": ["English", "Nigerian Pidgin", "Yoruba", "Igbo", "Hausa", "Twi", "Swahili"],
+  "african_alpha_claim": true,
+  "budget_laptop_claim": true,
+  "submitter": {
+    "name": "YOUR NAME",
+    "email": "YOUR EMAIL",
+    "github_handle": "YOUR GITHUB"
+  },
+  "cross_disciplinary_pairing": {
+    "discipline": "Finance / SME Productivity",
+    "load_bearing": true,
+    "description": "AI-powered financial ledger for African small businesses, parsing Mobile Money SMS and WhatsApp debt agreements offline."
+  },
+  "test_prompts": [
+    {
+      "prompt_id": "structured_sms_parse",
+      "prompt": "Parse this OPay SMS: 'You have received N50,000.00 from CHINEDU OKAFOR. Ref: 20260817001. Bal: N125,450.00.' Log it as income."
+    },
+    {
+      "prompt_id": "messy_pidgin_to_structured",
+      "prompt": "Abeg remind Chinedu say him still owe me 45k from the last delivery. He said he'll pay after market day. Extract the customer, amount, type, context, and due date."
+    }
+  ],
+  "model": {
+    "name": "Llama-3.2-3B-Instruct",
+    "runtime": "llama.cpp",
+    "quantization": "Q4_K_M",
+    "parameters_estimate": "3B",
+    "packaging": "binary_bundle"
+  },
+  "_runtime": {
+    "model_path": "model/Llama-3.2-3B-Instruct-Q4_K_M.gguf"
+  }
+}

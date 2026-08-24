@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.1.0",
+  "profiler_version": "adtc-profiler 0.1.0",
+  "submission": {
+    "team_id": "sabicore",
+    "domain": "corporate_enterprise",
+    "language_scope": [
+      "English",
+      "Nigerian Pidgin",
+      "Yoruba",
+      "Igbo",
+      "Hausa",
+      "Twi",
+      "Swahili"
+    ],
+    "african_alpha_claim": true,
+    "budget_laptop_claim": true,
+    "submitter": {
+      "name": "YOUR NAME",
+      "email": "YOUR EMAIL",
+      "github_handle": "YOUR GITHUB"
+    },
+    "cross_disciplinary_pairing": {
+      "discipline": "Finance / SME Productivity",
+      "load_bearing": true,
+      "description": "AI-powered financial ledger for African small businesses, parsing Mobile Money SMS and WhatsApp debt agreements offline."
+    },
+    "test_prompts": [
+      {
+        "prompt_id": "opay_sms_parse",
+        "prompt": "Parse this OPay SMS: 'You have received N50,000.00 from CHINEDU OKAFOR. Ref: 20260817001. Bal: N125,450.00.' Log it as income."
+      },
+      {
+        "prompt_id": "whatsapp_debt_extract",
+        "prompt": "Extract this debt agreement from WhatsApp: '[18/08/2026, 13:00] Mama Nkechi: Chinedu, the 20 bags of rice I supply you yesterday, you never pay the balance. [18/08/2026, 13:05] Chinedu: Ah Mama no vex. I go balance you the remaining N150,000 next market day.'"
+      }
+    ],
+    "model": {
+      "name": "Llama-3.2-3B-Instruct",
+      "runtime": "llama.cpp",
+      "quantization": "Q4_K_M",
+      "parameters_estimate": "3B",
+      "packaging": "binary_bundle"
+    }
+  },
+  "environment": {
+    "measured_on": "participant_laptop",
+    "cpu_model": "Apple M3",
+    "ram_gb": 16.0,
+    "gpu": "integrated only",
+    "os": "macOS-26.5.2-arm64-arm-64bit"
+  },
+  "throughput": {
+    "tokens_per_second_generation": 8.32,
+    "first_token_latency_ms": 12138.82,
+    "prompt_tokens": 512,
+    "generated_tokens": 128
+  },
+  "memory": {
+    "peak_rss_mb": 3779.3,
+    "steady_state_rss_mb": 2677.0,
+    "peak_vms_mb": 831133.22
+  },
+  "accuracy": [],
+  "cpu_thermal": {
+    "cpu_percent_p99": 78.7,
+    "core_temp_c_peak": null,
+    "throttled": false
+  },
+  "reproducibility": {
+    "git_commit_sha": "4c4d4a292e4c",
+    "docker_image_digest": "unknown",
+    "random_seed": 42
+  },
+  "model_info": {
+    "params_count": 3212749888,
+    "context_length": 131072,
+    "architecture": "llama",
+    "claimed_params_estimate": "3B",
+    "params_match": true
+  }
+}

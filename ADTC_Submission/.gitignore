@@ -1,0 +1,22 @@
+# Model files (downloaded by download_model.sh)
+*.gguf
+model/
+
+# Node
+node_modules/
+dist/
+
+# Rust build
+target/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+server_logs.txt
