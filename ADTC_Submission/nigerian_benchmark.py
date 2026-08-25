@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-SabiCore Nigerian Economic Benchmark — 150 examples
+MOVA Nigerian Economic Benchmark — 150 examples
 40% English, 40% Pidgin, 20% Messy/Ambiguous
 
 Measures: entity accuracy, amount accuracy, direction accuracy, status accuracy, full-record accuracy
@@ -187,7 +187,7 @@ BENCHMARK = [
 # SYSTEM PROMPT — optimized with few-shot examples
 # ============================================================
 
-SYSTEM_PROMPT = """You are SabiCore, an offline financial intelligence system for African SMEs.
+SYSTEM_PROMPT = """You are MOVA, an offline financial intelligence system for African SMEs.
 You extract structured financial data from business messages.
 
 KEY RULE:
@@ -293,7 +293,7 @@ def score_example(example: dict, response: str) -> dict:
 
 def main():
     print("=" * 70)
-    print("SabiCore Nigerian Economic Benchmark — 150 Examples")
+    print("MOVA Nigerian Economic Benchmark — 150 Examples")
     print("=" * 70)
 
     # Check server is running

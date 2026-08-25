@@ -5,7 +5,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 
 echo "========================================================="
-echo "    SabiCore Elite: Native Desktop App (Tauri + GPU)     "
+echo "    MOVA: Native Desktop App (Tauri + GPU)     "
 echo "========================================================="
 echo "Starting the offline GPU inference engine (llama-server)..."
 
@@ -22,7 +22,7 @@ echo "Engine is warming up. Waiting 5 seconds..."
 sleep 5
 
 echo "Launching Native Tauri Application..."
-cd SabiTrade_App
+cd mova-app
 npm install
 npm run tauri dev
 

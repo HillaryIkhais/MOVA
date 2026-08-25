@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SabiCore Language Benchmark — Tests economic extraction across 5 Nigerian languages."""
+"""MOVA Language Benchmark — Tests economic extraction across 5 Nigerian languages."""
 
 import json
 import subprocess
@@ -8,7 +8,7 @@ import re
 
 SERVER_URL = "http://127.0.0.1:8084/completion"
 
-SYSTEM_PROMPT = """You are SabiCore, an offline financial intelligence system for African SMEs.
+SYSTEM_PROMPT = """You are MOVA, an offline financial intelligence system for African SMEs.
 You extract structured financial data from business messages.
 Always respond with EXACTLY these fields and nothing else:
 customer: [name]
@@ -120,7 +120,7 @@ def score_match(expected: dict, actual: dict) -> dict:
 
 def main():
     print("=" * 60)
-    print("SabiCore Language Benchmark — Economic Extraction")
+    print("MOVA Language Benchmark — Economic Extraction")
     print("=" * 60)
 
     results = {}

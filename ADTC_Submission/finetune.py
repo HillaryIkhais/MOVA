@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""SabiCore LoRA Fine-Tuning — Economic Extraction Task."""
+"""MOVA LoRA Fine-Tuning — Economic Extraction Task."""
 
 import json
 import torch
@@ -8,7 +8,7 @@ from peft import LoraConfig, get_peft_model, TaskType
 from trl import SFTTrainer
 
 MODEL_NAME = "unsloth/Llama-3.2-3B-Instruct"
-OUTPUT_DIR = "./sabicore-finetuned"
+OUTPUT_DIR = "./mova-finetuned"
 TRAINING_DATA = "training_dataset.jsonl"
 
 def main():

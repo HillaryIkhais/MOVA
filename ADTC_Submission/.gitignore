@@ -20,3 +20,8 @@ Thumbs.db
 # Logs
 *.log
 server_logs.txt
+
+# Training data (kept locally)
+create_training_data.py
+training_data_raw.json
+training_dataset.jsonl

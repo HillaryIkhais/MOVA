@@ -3,7 +3,7 @@ import './App.css';
 
 const API_URL = 'http://127.0.0.1:8084/completion';
 
-const GET_SYSTEM_PROMPT = (lang: string, biz: string) => `You are SabiCore, an offline financial intelligence system for African SMEs.
+const GET_SYSTEM_PROMPT = (lang: string, biz: string) => `You are MOVA, an offline financial intelligence system for African SMEs.
 Business: ${biz}
 Language: ${lang}
 
@@ -46,7 +46,7 @@ function App() {
     e.preventDefault();
     if (!businessName.trim()) return;
     setMessages([
-      { role: 'system', content: `**SYSTEM ONLINE**\n\nWelcome to the SabiCore Command Center for **${businessName.toUpperCase()}**.\n\nAll data is processed locally on this device. No cloud required. Sync your WhatsApp logs or Mobile Money SMS below to update the ledger.` }
+      { role: 'system', content: `**SYSTEM ONLINE**\n\nWelcome to the MOVA Command Center for **${businessName.toUpperCase()}**.\n\nAll data is processed locally on this device. No cloud required. Sync your WhatsApp logs or Mobile Money SMS below to update the ledger.` }
     ]);
     setScreen('ledger');
   };
@@ -151,8 +151,8 @@ function App() {
       <div className="landing-layout">
         <div className="landing-content fade-in">
           <div className="hexagon-logo">SC</div>
-          <h1 className="hero-title">SabiCore Elite</h1>
-          <p className="hero-desc">Offline financial intelligence for African SMEs. Paste a WhatsApp message or SMS in English or Pidgin — SabiCore extracts who owes whom, how much, and when it's due. No internet. No cloud. Your data stays on your laptop.</p>
+          <h1 className="hero-title">MOVA Elite</h1>
+          <p className="hero-desc">Offline financial intelligence for African SMEs. Paste a WhatsApp message or SMS in English or Pidgin — MOVA extracts who owes whom, how much, and when it's due. No internet. No cloud. Your data stays on your laptop.</p>
           <form className="landing-form" onSubmit={handleStartLedger}>
             <input
               type="text"
@@ -175,7 +175,7 @@ function App() {
       <aside className="sidebar">
         <div className="sidebar-logo">
           <div className="hexagon-logo-sm">SC</div>
-          <h2>SabiCore</h2>
+          <h2>MOVA</h2>
         </div>
         
         <div className="lang-section">
@@ -224,7 +224,7 @@ function App() {
               <div key={idx} className={`message-wrapper ${msg.role}`}>
                 <div className="avatar">{msg.role === 'user' ? 'U' : 'AI'}</div>
                 <div className="message-content">
-                  <div className="sender-name">{msg.role === 'user' ? 'Operator' : 'SabiCore AI'}</div>
+                  <div className="sender-name">{msg.role === 'user' ? 'Operator' : 'MOVA AI'}</div>
                   <div className="bubble" dangerouslySetInnerHTML={{ __html: msg.content.replace(/\n/g, '<br/>') }} />
                 </div>
               </div>
@@ -233,7 +233,7 @@ function App() {
               <div className="message-wrapper system">
                 <div className="avatar">AI</div>
                 <div className="message-content">
-                  <div className="sender-name">SabiCore AI</div>
+                  <div className="sender-name">MOVA AI</div>
                   <div className="bubble"><div className="typing-loader"><span></span><span></span><span></span></div></div>
                 </div>
               </div>
