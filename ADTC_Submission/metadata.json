@@ -10,7 +10,7 @@
   "submitter": {
     "name": "IKHAIS HILLARY",
     "email": "ikhaishillary@gmail.com",
-    "github_handle": "https://github.com/HillaryIkhais"
+    "github_handle": "HillaryIkhais"
   },
   "cross_disciplinary_pairing": {
     "discipline": "Finance / SME Productivity",
@@ -20,11 +20,11 @@
   "test_prompts": [
     {
       "prompt_id": "sms_to_ledger",
-      "prompt": "You are MOVA, an offline financial intelligence system for African SMEs. Parse this Mobile Money SMS and extract the transaction details.\n\nSMS: \"OPay: You have received N50,000.00 from CHINEDU OKAFOR. Ref: 20260817001. Bal: N125,450.00.\"\n\nExtract: sender name, amount received, reference number, new balance, and transaction type (income/expense)."
+      "prompt": "OPay: You have received N50,000.00 from CHINEDU OKAFOR. Ref: 20260817001. Bal: N125,450.00."
     },
     {
       "prompt_id": "whatsapp_debt_to_structured",
-      "prompt": "You are MOVA, an offline financial intelligence system for African SMEs. Parse this WhatsApp conversation and extract the debt information.\n\n[18/08/2026, 13:00] Mama Nkechi: Chinedu, the 20 bags of rice I supply you yesterday, you never pay the balance.\n[18/08/2026, 13:05] Chinedu: Ah Mama no vex. I go balance you the remaining N150,000 next market day.\n[18/08/2026, 13:10] Mama Nkechi: No problem, I don record am.\n\nExtract: creditor name, debtor name, amount owed, due date, and current status."
+      "prompt": "Chinedu still dey owe me 85k for the last delivery. He say he go pay next market day."
     }
   ],
   "model": {
