@@ -134,11 +134,11 @@ All numbers measured by `adtc-profiler run --mode participant --output submissio
 
 ### Note on Hardware
 
-The ADTC reference hardware is an Intel Core i5 10th-12th gen, 8 GB DDR4, integrated graphics. Our development hardware is Apple M3. The profiler's `llama-bench` runs CPU-only on both platforms. Published benchmarks for similar 3B Q4_K_M models on Intel i5 hardware show comparable throughput ranges (10-12 t/s). Our measured numbers are within the expected performance envelope for this model class.
+The ADTC reference hardware is an Intel Core i5 10th-12th gen, 8 GB DDR4, integrated graphics. Development hardware is Apple M3. The profiler's `llama-bench` runs CPU-only on both platforms. Published benchmarks for similar 3B Q4_K_M models on Intel i5 hardware show comparable throughput ranges (10-12 t/s). Measured numbers are within the expected performance envelope for this model class.
 
 ## Language Benchmark — Economic Extraction Accuracy
 
-We built a **130-example Nigerian economic benchmark** covering:
+A **130-example Nigerian economic benchmark** was built covering:
 - 50 English examples (40%)
 - 50 Nigerian Pidgin examples (40%)
 - 30 messy/ambiguous examples (20%) — code-switched, multi-transaction, disputed
@@ -170,7 +170,7 @@ Each example maps a real business message to ground-truth JSON financial state.
 
 *Direction scores improved from ~35% to 92% via targeted prompt optimization (tested on 12-example payable directional test set).
 
-**Honest assessment:** We tested Yoruba, Igbo, and Hausa on 5 examples each. The 3B model shows partial comprehension but cannot reliably extract structured financial data from indigenous languages. This is a known limitation — we do not claim indigenous language support in this submission. The model's strength is **Nigerian English + Pidgin**, where it achieves production-grade accuracy.
+**Honest assessment:** Yoruba, Igbo, and Hausa were tested on 5 examples each. The 3B model shows partial comprehension but cannot reliably extract structured financial data from indigenous languages. This is a known limitation — indigenous language support is not claimed in this submission. The model's strength is **Nigerian English + Pidgin**, where it achieves production-grade accuracy.
 
 ### Results by Category
 
@@ -187,7 +187,7 @@ Each example maps a real business message to ground-truth JSON financial state.
 
 ### Key Finding
 
-The model's biggest weakness was **debt direction** — flipping "I owe X" to receivable. With targeted prompt engineering (explicit direction rules + few-shot examples), we improved payable direction accuracy from **35% to 92%** on a directional test set. This is the core of MOVA's value: correctly understanding who owes whom in informal African commerce.
+The model's biggest weakness was **debt direction** — flipping "I owe X" to receivable. With targeted prompt engineering (explicit direction rules + few-shot examples), payable direction accuracy improved from **35% to 92%** on a directional test set. This is the core of MOVA's value: correctly understanding who owes whom in informal African commerce.
 
 **What this means for the competition:** The 72% ARC-Easy score measures general reasoning. But MOVA's specialized benchmark shows the same model achieves **98% entity extraction, 92% debt direction, and 91% status accuracy** on its intended task. The model is far more capable on African financial language than the generic benchmark suggests.
 
